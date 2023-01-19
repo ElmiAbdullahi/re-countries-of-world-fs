@@ -1,6 +1,11 @@
 import React from 'react';
-import '.CountryCard.css';
+import './CountryCard.css';
 
-export default function CountryCard({ country }) {
-  return <div className="country-card">{/* <img src={country.flag} alt={country.name} /> */}</div>;
+export default function CountryCard(country) {
+  return (
+    <div className="country-card">
+      <h3>{country.name}</h3>
+      <h4>{country.local_name}</h4>
+    </div>
+  );
 }

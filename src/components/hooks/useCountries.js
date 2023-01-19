@@ -1,12 +1,15 @@
-import React from "react";
+import { useEffect, useState } from 'react';
+import { fetchCountries } from '../../services/fetch-countries.js';
 
-export function useCountries() {
+export default function useCountries() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetchCountries();
       setCountries(resp);
-    }, []);
-  return countries;
+    };
+    fetchData();
+  }, []);
+  return { countries, setCountries };
 }
